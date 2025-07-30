@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<div lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+</head>
+<form action="/procesar_formulario" method="post">
+
+<div class="sumar">
+
+        <input type="radio" value="suma"   name="boton" id="suma">
+            <label for="suma" class="font-effect-fire" >suma</label>
+        
+</div >
+
+    <div class="restar">
+        <input type="radio" value="restanumero"  onclick="restar()"  name="boton"  id="restanumero">
+         <label  for="restanumero" class="font-effect-fire" >resta</label>
+</div>
+
+<div class="dividir">
+        <input type="radio" onclick="division()" value="division" name="boton" id="division" >
+         <label for="division" class="font-effect-fire" >division</label>
+</div>
+<div class="multiplicar">
+        <input type="radio" onclick="multiplicacion()" value="multiplicacion" name="boton" id="multiplicacion">
+         <label for="multiplicacion" class="font-effect-fire" >multiplicacion</label>
+</div>
+</form>
+<div class="valores">
+    <input type="text" id="n1">
+     <input type="text" id="n2">
+     <h1 id="resul" >0</h1>
+</div>
+
+<div class="boton">
+    <button id="botonigual" onclick="calcular()">=</button>
+</div>
+<!-- <div class="boton1">
+    <button id="igualmultiplicar" onclick="multiplicacion()"> igual multiplicar</button>
+</div>
+<div class="boton2">
+<button id="igualdivision" onclick="division()"> dividir</button>
+</div> -->
+    
+<script>
+    
+    function calcular(){
+
+
+       if(document.getElementById("suma").checked){
+        let r= document.getElementById("resul");
+        let numero1=document.getElementById("n1");
+        let numero2=document.getElementById("n2");
+        r.textContent= parseInt(numero1.value) + parseInt (numero2.value)
+let valor = parseInt(r.textContent); 
+r.style.color = (valor < 0) ? "red" : "green";
+r.style.fontWeight = "800";}
+
+        else if(document.getElementById("restanumero").checked){
+        let r= document.getElementById("resul");
+        let numero1=document.getElementById("n1");
+        let numero2=document.getElementById("n2");
+        r.textContent= parseInt(numero1.value) +  parseInt (numero2.value)
+let valor = parseInt(r.textContent); 
+r.style.color = (valor < 0) ? "red" : "green";
+r.style.fontWeight = "800";}
+
+    else if(document.getElementById("multiplicacion").checked){
+        
+        let r= document.getElementById("resul");
+        let numero1=document.getElementById("n1");
+        let numero2=document.getElementById("n2");
+        r.textContent= parseInt(numero1.value) * parseInt (numero2.value)
+let valor = parseInt(r.textContent); 
+r.style.color = (valor < 0) ? "red" : "green";
+r.style.fontWeight = "800";}
+        
+ else if(document.getElementById("division").checked) {
+  let numero1 = document.getElementById("n1");
+let numero2 = document.getElementById("n2");
+ let r = document.getElementById("resul");
+let valor = parseInt(r.textContent); 
+r.style.color = (valor < 0) ? "red" : "green";
+r.style.fontWeight = "bold";
+
+let n1 = Number(numero1.value);
+  let n2 = Number(numero2.value);
+
+  if (n1 === 0 && n2 === 0) {
+    r.textContent = "Este resultado no es posible en reales";
+  } else {
+    r.textContent = n1 / n2;
+  }
+}  
+
+
+}
+    
+</script>
+
+
+
+</body>
+</html>

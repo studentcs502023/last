@@ -1,0 +1,68 @@
+.sumar{
+font-weight: 800;
+font: 20px;
+height: 3vh;
+width: 100%;
+
+
+}
+
+label:active {
+  background-color: blue; /* Cambia el color de fondo a azul */
+  transform: scale(0.95); /* Reduce ligeramente el tamaño */
+
+}
+
+#suma:checked + .font-effect-fire{
+  color: black; /* Cambia el color del texto a rojo */
+  font-weight: bold; /* Hace el texto en negritas */
+}
+
+
+#restanumero:checked + .font-effect-fire{
+  color: black; /* Cambia el color del texto a rojo */
+  font-weight: bold; /* Hace el texto en negritas */
+}
+
+
+#multiplicacion:checked + .font-effect-fire{
+  color: black; /* Cambia el color del texto a rojo */
+  font-weight: bold; /* Hace el texto en negritas */
+}
+
+
+#division:checked + .font-effect-fire{
+  color: black; /* Cambia el color del texto a rojo */
+  font-weight: bold; /* Hace el texto en negritas */
+}
+
+#n1{
+background-color:antiquewhite;
+margin: 4px;
+width: 20vw;
+border-radius: 5px;
+ border-top: 1px solid blue;
+  border-right: 2px dashed green;
+  border-bottom: 1px dotted red;
+  border-left: 1px solid black;
+}
+
+#n2{
+background-color:antiquewhite;
+margin: 4px;
+width: 20vw;
+border-radius: 5px;
+ border-top: 1px solid blue;
+  border-right: 2px dashed green;
+  border-bottom: 1px dotted red;
+  border-left: 1px solid black;
+
+}
+
+#botonigual{
+color: black;
+background-color: rgba(255, 0, 0, 0.884);
+border-radius: 5px;
+height: 5vh;
+width: 10vw;
+}
