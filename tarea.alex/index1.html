@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body> 
+
+<div id="nombre"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  let res = await axios.get("./data.json");
+
+  res.data.forEach((item, i) => {
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+
+    // Fondo de la tarjeta
+    cardDiv.style.backgroundImage = `url(${item.url_imagen})`;
+    cardDiv.style.backgroundSize = "cover";
+    cardDiv.style.backgroundPosition = "center";
+    cardDiv.style.height = "300px";
+    cardDiv.style.cursor = "pointer";
+
+    // Al hacer clic redirige al detalle
+    cardDiv.addEventListener("click", () => {
+      window.location.href = `./page.html?index=${i}&curso=Arquitectura`;
+    });
+
+    // Contenido interno
+    cardDiv.innerHTML = `
+      <h1 id="name">${item.nombre}</h1>
+      <figure class="card2">
+        <figcaption id="ciudad">${item.ciudad}</figcaption>
+      </figure>
+    `;
+
+    document.getElementById("nombre").appendChild(cardDiv);
+  });
+});
+</script>
+
+</body>
+</html>
+
