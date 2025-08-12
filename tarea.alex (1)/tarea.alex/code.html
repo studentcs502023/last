@@ -1,0 +1,201 @@
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  // Obtén los parámetros de la URL
+  const params = new URLSearchParams(window.location.search);
+  const nombre = params.get("nombre");
+  const curso = params.get("curso");
+
+  // Carga el JSON
+  let res = await axios.get("./data.json");
+  console.log(res);
+
+  // Busca si el nombre existe en el JSON
+res.data.find((item) => item.nombre === "Torre Eiffel" );
+
+      <h1>Hola ${nombre}</h1>
+});
+</script>
+    
+</body>
+</html> -->
+<!-- <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle</title>
+</head>
+<body>
+  <div id="info">
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const params = new URLSearchParams(window.location.search);
+  
+
+const index = parseInt(params.get("index"));  // en lugar de nombre
+const curso = params.get("curso");
+
+let res = await axios.get("./data.json");
+const item = res.data[index];
+    }); -->
+    <!-- //   const item = res.data.find((obj) => obj.nombre === "Torre Eiffel");
+
+    //   if (item) {
+    //     document.getElementById("info").innerHTML = `
+    //       <h1>${item.nombre}</h1>
+    //       <p>Curso: ${curso}</p>
+    //       <img src="${item.imagen || ''}" alt="imagen">
+    //       <p>Descripción: ${item.descripcion || 'Sin descripción'}</p>
+    //     `;
+    //   } else {
+    //     document.getElementById("info").innerHTML = `<h1>No se encontró información para "${nombre}"</h1>`;
+    //   }
+    // });
+  </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle</title>
+  <link rel="stylesheet" href="estilos2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Íconos -->
+
+
+<div id="info">
+
+<div class="item">
+<i id="content" class="fa-solid fa-brain" style="font-size:20px; cursor:pointer;" onclick="mostrarInfo(3)"></i>
+</div>
+
+<div id="resultado"></div>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  let itemActual = null; // Guardar datos globalmente
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const params = new URLSearchParams(window.location.search);
+    const index = parseInt(params.get("index"));
+
+    let res = await axios.get("./data.json");
+
+    if (!isNaN(index) && index >= 0 && index < res.data.length) {
+      itemActual = res.data[index]; 
+
+
+const color  = document.getElementById("info");
+color.style.background =  `linear-gradient(to bottom, 
+    ${itemActual.categoria.colorPrimario || "#ff0000"}, 
+    ${itemActual.categoria.colorSecundario || "#0000ff"})`;
+  const datosHtml = itemActual.datosInteresantes
+    .map(dato => `<strong>${dato.titulo}:</strong> ${dato.valor || 'Sin descripción'}`)
+    .join('<br>');
+
+      document.getElementById("info").innerHTML = 
+`
+
+        <div class="info2"  >
+          <div class="detalles">
+          </div>
+          <figure class="card2" >
+<h2 id="categoria">${itemActual.categoria.nombre} </h2>
+            <h1 id="name">${itemActual.nombre}</h1>
+<p id="descripcion"> ${itemActual.descripcion || 'Sin descripción'}</p>
+            <img id="imagen" src="${itemActual.url_imagen || ''}" alt="imagenimagen">
+            <figcaption id="ciudad">${itemActual.ciudad}</figcaption>
+            <figcaption id="pais">${itemActual.pais}</figcaption>
+          </figure> 
+<div class="info3">
+ <p id="text">
+      DATOS INTERESANTES: <br>
+      ${datosHtml}
+    </p>
+<p  id="text">ACTIVIDADES RECOMENDADAS :
+ <br>  ${itemActual.actividadesRecomendadas || 'Sin descripción'}</p>
+<p id=text> COORDENADAS:
+Latitud: ${itemActual.coordenadas.latitud} ||
+ Longitud:${itemActual.coordenadas.longitud} </p>
+<div class="item" ></div>
+<div class="resultado" ></div>
+</div>
+        </div>
+      `;
+    } else {
+      document.getElementById("info").innerHTML = `<h1>No se encontró el objeto con ese índice</h1>`;
+    }
+
+
+  // document.getElementById("info").innerHTML = `
+  //   <p id="text">
+  //     DATOS INTERESANTES: <br>
+  //     ${datosHtml}
+  //   </p>`;
+  });
+
+  function mostrarInfo(opcion) {
+    if (!itemActual) return; // Si no hay datos, no hacemos nada
+
+    if (opcion === 1) {
+      document.getElementById("resultado").innerHTML =
+ `<p id=text>Latitud: ${itemActual.coordenadas.latitud} || Longitud:${itemActual.coordenadas.longitud} </p>`;
+    } else if (opcion === 2) {
+      document.getElementById("resultado").innerHTML = 
+`<p  id="text">ACTIVIDADES RECOMENDADAS : <br> 
+ ${itemActual.actividadesRecomendadas || 'Sin descripción'}</p>`;
+    }
+else if (opcion === 3) {
+  const datosHtml = itemActual.datosInteresantes
+    .map(dato => `<strong>${dato.titulo}:</strong> ${dato.valor || 'Sin descripción'}`)
+    .join('<br>');
+
+  document.getElementById("resultado").innerHTML = `
+    <p id="text">
+      DATOS INTERESANTES: <br>
+      ${datosHtml}
+    </p>`;
+}}
+
+  function volver() {
+    window.location.href = 'project.html';
+  }
+</script>
+
+<button onclick="volver()">Volver</button>
+
+</body>
+</html> -->

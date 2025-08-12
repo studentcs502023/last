@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iconos como botones</title>
+  <!-- Cargar iconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Iconos con onclick -->
+<i class="fa-solid fa-mountain-city"> style="font-size:30px; cursor:pointer;" onclick="mostrarInfo(1)"></i>
+<i class="fa-solid fa-question-circle" style="font-size:30px; cursor:pointer;" onclick="mostrarInfo(2)"></i>
+
+<div id="resultado"></div>
+
+<script>
+  function mostrarInfo(opcion) {
+    if (opcion === 1) {
+      document.getElementById("resultado").textContent = "Hola desde el icono 1";
+    } else if (opcion === 2) {
+      document.getElementById("resultado").textContent = "Hola desde el icono 2";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+@media (min-width: 300px) {
+   .info2{
+display: flex;
+flex-direction: column;
+max-width: 100%;
+max-height: 100%;
+margin: 0;
+}
+.card2{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+line-height: 0px;
+}
+#imagen{
+height: 300px;
+width: 250px;
+margin: 0;
+
+}
+
+/* .info3{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+} */
+
+#text{
+font-size: 15px;
+display: flex;
+flex-direction: column;
+box-sizing: border-box;
+width: 40vh;
+width:100px;
+
+}
+.item{
+display: flex;
+gap: 30px;
+
+}
+#descripcion{
+font-weight: 300;
+justify-content: center;
+align-items: center;
+line-height: 15px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+#ciudad{
+line-height: 15px;
+text-transform: uppercase;
+color: whitesmoke;
+font-weight: bold;
+}
+#pais{
+line-height: 15px;
+text-transform: uppercase;
+color: whitesmoke;
+font-weight: bold;
+}
+
+#categoria{
+line-height: 20px;
+}
+
+
+    .botones {
+      display: flex;
+flex-direction: column;
+      gap: 5px;
+justify-content: center;
+align-items: center;
+      
+    }
+    .botones button {
+
+      padding: 4px 8px;
+      border: none;
+      border-radius: 5px;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+    }
+    .botones button:hover {
+      background-color: #666;
+    }
+    iframe {
+      border: none;
+      width: 90%;
+      height: 250px;
+      border-radius: 8px;
+justify-content: center;
+align-items: center;
+    }
+
+
+
+
+
+
+   /* .info2{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+
+}
+
+#imagen{
+height: 200px;
+width: 200px;
+}  */

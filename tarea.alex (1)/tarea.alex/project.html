@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body> 
+
+<div id="nombre"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  let res = await axios.get("./data.json");
+
+  res.data.forEach((item, i) => {
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+
+    // Fondo de la tarjeta
+    cardDiv.style.backgroundImage = `url(${item.url_imagen})`;
+    cardDiv.style.backgroundSize = "cover";
+    cardDiv.style.backgroundPosition = "center";
+    cardDiv.style.height = "300px";
+    cardDiv.style.cursor = "pointer";
+
+    // Al hacer clic redirige al detalle
+    cardDiv.addEventListener("click", () => {
+      window.location.href = `./page.html?index=${i}&curso=Arquitectura`;
+    });
+
+    // Contenido interno
+    cardDiv.innerHTML = `
+      <h1 id="name">${item.nombre}</h1>
+      <figure class="card2">
+        <figcaption id="ciudad">${item.ciudad}</figcaption>
+      </figure>
+    `;
+
+    document.getElementById("nombre").appendChild(cardDiv);
+  });
+});
+</script>
+
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body> 
+
+  <script>
+
+    function seguir() {
+    window.location.href = 'page.html'; // Redirige a 'project.html'
+  }
+
+   
+  </script>
+  
+  <div id="nombre"  onclick="seguir()" >
+
+  </div>
+     <!-- <img src="${lugares.url_imagen}||"
+    alt="imagen de ${item.nombre} || ">  -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+   
+        let res = await axios.get("./data.json");
+        console.log(res);
+
+
+
+        res.data.forEach((item, i) => {
+       const cardDiv = document.createElement("div");
+          cardDiv.classList.add("card");
+ cardDiv.addEventListener("click", () => {
+item.url_imagen;
+    window.location.href = `./page.html?index=${i}&curso=Arquitectura`;
+  });
+         
+
+          // Agregar el contenido HTML dentro de cada card
+          cardDiv.innerHTML = `
+            <div class="card" >
+                
+
+              <h1 id="name">${item.nombre}</h1>
+           <figure class="card2">
+               
+              <figcaption id="ciudad">${item.ciudad}</figcaption>
+            </figure>
+
+         
+      ${i === 0 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 1 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 2 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 3 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 4 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 5 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 6 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 7 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 8 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 9 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 10 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i ===11 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 12 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 13 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 14 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 15 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 16 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 17 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 18 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 19 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+${i === 20 ? `<a id="link" href="./page.html?index=${i}&curso=Arquitectura">Ver más</a>` : ''}
+            </div>
+          `;
+           cardDiv.style.backgroundImage = `url(${item.url_imagen})`;
+          cardDiv.style.backgroundSize = "cover"; // Aseguramos que la imagen cubra toda la tarjeta
+          cardDiv.style.backgroundPosition = "center"; // Centrar la imagen de fondo
+          cardDiv.style.height = "300px"; // Define la altura para que la imagen de fondo se vea bien
+
+          // Agregar la tarjeta creada al contenedor "nombre"
+          document.getElementById("nombre").appendChild(cardDiv);
+
+
+        });
+
+cardDiv.style.backgroundImage = `url(${item.url_imagen})`;
+cardDiv.style.backgroundSize = "cover";
+cardDiv.style.backgroundPosition = "center";
+
+
+}) -->
+  <!-- // Redirige a la URL construida
+
+// let item = { name: "Torre Eiffel" };
+// console.log(item.name);
+// if(item===0){
+//     document.getElementById("nombre").innerHTML += `
+// <img src="${item.imagen || ''}" alt="imagen>
+// `;
+// }
+   
+
+
+  </script>
+
+ 
+
+
+</body>
+</html>
+<!-- // res.data.forEach((item, i) => {
+// document.getElementById("nombre").innerHTML+= 
+
+// `
+
+// <div id="card1">
+// <h1>
+// ${item.nombre}</h1>
+// <img src="" alt="imagen" ${item} > 
+// <a id="link"  onclick=  href="./page.html"> link</a>
+
+
+// </div>
+//  `
+// }) --> -->
+<!-- 
+    <img id="imagen" src="${item.url_imagen}" alt=""> --> -->
